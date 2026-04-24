@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>LazoTech - Planes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="history-page">
+    <h1>Planes en pareja</h1>
+    <p class="subtitle">Organicen actividades o lugares para visitar juntos</p>
+
+    <div class="card">
+      <label>Actividad o lugar</label>
+      <input id="planName" type="text" placeholder="Ej. Ir al cine, cenar, caminar">
+
+      <label>Fecha</label>
+      <input id="planDate" type="date">
+
+      <label>Hora</label>
+      <input id="planTime" type="time">
+
+      <button id="savePlanBtn" type="button">Guardar plan</button>
+    </div>
+
+    <div class="card">
+      <h3>Lugares sugeridos cerca de ti</h3>
+      <button id="restaurantBtn" type="button">Restaurantes cercanos</button>
+      <button id="parkBtn" type="button">Parques cercanos</button>
+      <button id="cinemaBtn" type="button">Cines cercanos</button>
+    </div>
+
+    <div class="card">
+      <h3>Planes guardados</h3>
+      <div id="plansList"></div>
+    </div>
+  </div>
+
+  <div class="bottom-menu">
+    <button id="mapBtn" type="button">Mapa</button>
+    <button id="historyBtn" type="button">Historial</button>
+    <button id="plansBtn" type="button">Planes</button>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
