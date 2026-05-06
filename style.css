@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f7ede8, #f7f3de);
+  color: #22314d;
+  min-height: 100vh;
+}
+
+.container,
+.history-page,
+.chat-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.logo-box,
+.logo-circle {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #ff2d55, #ff5e00);
+  color: white;
+  border-radius: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 42px;
+  box-shadow: 0 10px 25px rgba(255, 94, 0, 0.25);
+}
+
+.logo-circle {
+  border-radius: 50%;
+}
+
+.brand {
+  text-align: center;
+  font-size: 48px;
+  color: #ff3b00;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.brand-small {
+  font-size: 34px;
+  color: #ff3b00;
+  font-weight: 700;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 22px;
+  color: #44546f;
+  margin-bottom: 30px;
+}
+
+.card,
+.user-card,
+.partner-card,
+.map-card,
+.profile-card,
+.settings-card {
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 28px;
+  padding: 24px;
+  margin: 20px 0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  margin-top: 12px;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 16px;
+  background: #f0f0f3;
+  margin-bottom: 14px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #ff2d55, #ff5e00);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  opacity: 0.96;
+}
+
+.secondary-btn {
+  background: #d9d9df;
+  color: #22314d;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+}
+
+.top-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.top-actions button {
+  width: auto;
+  padding: 12px 18px;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6a6a, #ff8a00);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.big-avatar {
+  width: 90px;
+  height: 90px;
+  font-size: 36px;
+}
+
+.user-card,
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 8px;
+  background: #d7f5de;
+  color: #18a24b;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+iframe {
+  margin-top: 15px;
+  border: none;
+  border-radius: 20px;
+}
+
+.bottom-menu {
+  position: sticky;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 15px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+}
+
+.bottom-menu button {
+  margin: 0;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-top: 1px solid #eee;
+}
+
+.chat-messages {
+  height: 420px;
+  overflow-y: auto;
+  background: rgba(255,255,255,0.88);
+  border-radius: 22px;
+  padding: 15px;
+  margin: 20px 0;
+}
+
+.my-message,
+.partner-message {
+  max-width: 75%;
+  padding: 12px 14px;
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+
+.my-message {
+  margin-left: auto;
+  background: #ffe1d6;
+  text-align: right;
+}
+
+.partner-message {
+  margin-right: auto;
+  background: #f1f1f4;
+}
+
+.chat-input-box {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input-box input {
+  margin-bottom: 0;
+}
+
+.chat-input-box button {
+  width: 160px;
+}
+
+.history-item {
+  background: #fff4ef;
+  border-left: 5px solid #ff5e00;
+  padding: 16px;
+  border-radius: 14px;
+  margin-top: 12px;
+}
+
+.code-box {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ff3b00;
+  letter-spacing: 3px;
+  background: #fff0eb;
+  padding: 15px;
+  border-radius: 16px;
+  text-align: center;
+  margin: 12px 0;
+}
