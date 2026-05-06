@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LazoTech - Inicio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="top-bar">
+    <div>
+      <h1 class="brand-small">LAZOTECH</h1>
+      <p>Tu pareja conectada contigo</p>
+    </div>
+
+    <div class="top-actions">
+      <button id="chatBtn" type="button">Chat</button>
+      <button id="profileBtn" type="button">Perfil</button>
+    </div>
+  </div>
+
+  <div class="user-card">
+    <div class="avatar" id="profileInitial">U</div>
+    <div>
+      <h2 id="myName">Usuario</h2>
+      <p id="myEmail">correo@ejemplo.com</p>
+      <span class="status">Online</span>
+    </div>
+  </div>
+
+  <div class="partner-card">
+  <h3>Mi código de vinculación:</h3>
+  <p id="myCode" class="code-box">Cargando...</p>
+  <button id="copyCodeBtn" type="button">Copiar mi código</button>
+</div>
+
+  <div class="partner-card">
+    <h3>Tu pareja:</h3>
+    <p id="partnerName">Sin pareja vinculada</p>
+    <button id="linkBtn" type="button">Vincular pareja</button>
+  </div>
+
+  <div class="map-card">
+    <button id="locationBtn" type="button">Actualizar mi ubicación</button>
+    <iframe id="map" width="100%" height="350"></iframe>
+  </div>
+
+  <div class="bottom-menu">
+    <button id="mapBtn" type="button">Mapa</button>
+    <button id="historyBtn" type="button">Historial</button>
+    <button id="profileBottomBtn" type="button">Perfil</button>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
+
+<div class="map-card">
+  <h3>Ubicación de tu pareja</h3>
+  <p id="partnerLocationStatus">Esperando ubicación...</p>
+  <iframe id="partnerMap" width="100%" height="350"></iframe>
+</div>
+
+<button id="plansBtn" type="button">Planes</button>
