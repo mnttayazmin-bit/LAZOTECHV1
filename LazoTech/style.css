@@ -244,3 +244,15 @@ iframe {
   border-radius: 14px;
   margin-top: 12px;
 }
+
+.code-box {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ff3b00;
+  letter-spacing: 3px;
+  background: #fff0eb;
+  padding: 15px;
+  border-radius: 16px;
+  text-align: center;
+  margin: 12px 0;
+}

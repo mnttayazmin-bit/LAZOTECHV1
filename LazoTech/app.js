@@ -283,6 +283,19 @@ onAuthStateChanged(auth, async (user) => {
   currentUser = user;
 
   try {
+    // Crear y mostrar mi código
+    const myCode = user.uid.substring(0, 6).toUpperCase();
+
+    await setDoc(doc(db, "codes", myCode), {
+      owner: user.uid
+    }, { merge: true });
+
+    const myCodeElement = document.getElementById("myCode");
+    if (myCodeElement) {
+      myCodeElement.textContent = myCode;
+    }
+
+    // Cargar datos del usuario
     const userSnap = await getDoc(doc(db, "users", user.uid));
 
     if (userSnap.exists()) {
@@ -292,45 +305,36 @@ onAuthStateChanged(auth, async (user) => {
       const myEmail = document.getElementById("myEmail");
       const profileInitial = document.getElementById("profileInitial");
 
-      if (myName) {
-        myName.textContent = userData.name || "Usuario";
-      }
-
-      if (myEmail) {
-        myEmail.textContent = userData.email || "Sin correo";
-      }
-
+      if (myName) myName.textContent = userData.name || "Usuario";
+      if (myEmail) myEmail.textContent = userData.email || "Sin correo";
       if (profileInitial) {
         profileInitial.textContent = (userData.name || "U").charAt(0).toUpperCase();
       }
     }
 
+    // Cargar datos de pareja
     const pairSnap = await getDoc(doc(db, "pairs", user.uid));
 
     if (pairSnap.exists()) {
-      watchPartnerLocation(pairData.partnerUid);
-  const pairData = pairSnap.data();
+      const pairData = pairSnap.data();
 
       const partnerName = document.getElementById("partnerName");
       const profilePartnerName = document.getElementById("profilePartnerName");
       const chatPartnerName = document.getElementById("chatPartnerName");
 
-      if (partnerName) {
-        partnerName.textContent = pairData.partnerName || "Sin pareja vinculada";
-      }
+      if (partnerName) partnerName.textContent = pairData.partnerName || "Sin pareja vinculada";
+      if (profilePartnerName) profilePartnerName.textContent = pairData.partnerName || "Sin pareja vinculada";
+      if (chatPartnerName) chatPartnerName.textContent = pairData.partnerName || "Tu pareja";
 
-      if (profilePartnerName) {
-        profilePartnerName.textContent = pairData.partnerName || "Sin pareja vinculada";
-      }
-
-      if (chatPartnerName) {
-        chatPartnerName.textContent = pairData.partnerName || "Tu pareja";
+      if (pairData.partnerUid) {
+        watchPartnerLocation(pairData.partnerUid);
       }
     }
 
+    // Cargar secciones
     if (document.getElementById("plansList")) {
-  loadPlans();
-}
+      loadPlans();
+    }
 
     if (document.getElementById("historyList")) {
       loadHistory();
@@ -339,11 +343,11 @@ onAuthStateChanged(auth, async (user) => {
     if (document.getElementById("chatMessages")) {
       loadMessages();
     }
+
   } catch (error) {
     console.error("Error cargando datos del usuario:", error);
   }
 });
-
 // ===============================
 // VINCULAR PAREJA
 // ===============================
@@ -676,7 +680,11 @@ function connectPlansButtons() {
   const restaurantBtn = document.getElementById("restaurantBtn");
   const parkBtn = document.getElementById("parkBtn");
   const cinemaBtn = document.getElementById("cinemaBtn");
+  const copyCodeBtn = document.getElementById("copyCodeBtn");
 
+if (copyCodeBtn) {
+  copyCodeBtn.addEventListener("click", copyMyCode);
+}
   if (savePlanBtn) savePlanBtn.addEventListener("click", savePlan);
 
   if (mapBtn) mapBtn.addEventListener("click", () => window.location.href = "home.html");
@@ -766,4 +774,20 @@ function searchNearby(type) {
     const url = `https://www.google.com/maps/search/${type}/@${lat},${lng},15z`;
     window.open(url, "_blank");
   });
+}
+function copyMyCode() {
+  const code = document.getElementById("myCode")?.textContent;
+
+  if (!code || code === "Cargando...") {
+    alert("El código aún no está disponible");
+    return;
+  }
+
+  navigator.clipboard.writeText(code)
+    .then(() => {
+      alert("Código copiado: " + code);
+    })
+    .catch(() => {
+      alert("No se pudo copiar el código");
+    });
 }
